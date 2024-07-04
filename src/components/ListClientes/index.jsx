@@ -14,7 +14,7 @@ export default function ListClientes() {
   useEffect(() => {
     const fetchClientes = async () => {
       try {
-        const response = await axios.get('http://3.17.182.174/api/clientes');
+        const response = await axios.get('https://3.17.182.174/api/clientes');
         console.log(response)
         setClientes(response.data);
       } catch (error) {
@@ -27,7 +27,7 @@ export default function ListClientes() {
 
   const fetchClientesByName = async (name) => {
     try {
-      const response = await axios.get(`http://3.17.182.174/api/clientes/nome/${name}`);
+      const response = await axios.get(`https://3.17.182.174/api/clientes/nome/${name}`);
       setClientes(response.data);
     } catch (error) {
       console.error('Erro ao buscar clientes:', error);
@@ -36,7 +36,7 @@ export default function ListClientes() {
 
   const fetchClientes = async () => {
     try {
-      const response = await axios.get('http://3.17.182.174/api/clientes');
+      const response = await axios.get('https://3.17.182.174/api/clientes');
       setClientes(response.data);
     } catch (error) {
       console.error('Erro ao buscar clientes:', error);
@@ -68,7 +68,7 @@ export default function ListClientes() {
     if (!clienteToDelete) return;
 
     try {
-      await axios.delete(`http://3.17.182.174/api/clientes/${clienteToDelete.id}`);
+      await axios.delete(`https://3.17.182.174/api/clientes/${clienteToDelete.id}`);
       setClientes(clientes.filter(cliente => cliente.id !== clienteToDelete.id));
       closeModalExcluir();
     } catch (error) {
@@ -89,14 +89,14 @@ export default function ListClientes() {
   const saveCliente = async (clienteData) => {
     if (clienteToEdit) {
       try {
-        await axios.put(`http://3.17.182.174/api/clientes/${clienteToEdit.id}`, clienteData);
+        await axios.put(`https://3.17.182.174/api/clientes/${clienteToEdit.id}`, clienteData);
         fetchClientes();
       } catch (error) {
         console.error('Erro ao atualizar cliente:', error);
       }
     } else {
       try {
-        await axios.post('http://3.17.182.174/api/clientes', clienteData);
+        await axios.post('https://3.17.182.174/api/clientes', clienteData);
         fetchClientes();
       } catch (error) {
         console.error('Erro ao adicionar cliente:', error);

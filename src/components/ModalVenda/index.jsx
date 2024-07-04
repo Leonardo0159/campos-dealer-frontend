@@ -15,12 +15,12 @@ export default function ModalVenda({ isOpen, onClose, onSave, venda }) {
   useEffect(() => {
     if (isOpen) {
       // Carregar clientes
-      axios.get('http://3.17.182.174/api/clientes')
+      axios.get('https://3.17.182.174/api/clientes')
         .then(response => setClientes(response.data))
         .catch(error => console.error('Erro ao buscar clientes:', error));
       
       // Carregar produtos
-      axios.get('http://3.17.182.174/api/produtos')
+      axios.get('https://3.17.182.174/api/produtos')
         .then(response => setProdutos(response.data))
         .catch(error => console.error('Erro ao buscar produtos:', error));
     }

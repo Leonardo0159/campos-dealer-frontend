@@ -14,7 +14,7 @@ export default function ListVendas() {
   useEffect(() => {
     const fetchVendas = async () => {
       try {
-        const response = await axios.get('http://3.17.182.174/api/vendas');
+        const response = await axios.get('https://3.17.182.174/api/vendas');
         setVendas(response.data);
       } catch (error) {
         console.error('Erro ao buscar vendas:', error);
@@ -26,7 +26,7 @@ export default function ListVendas() {
 
   const fetchVendasByName = async (name) => {
     try {
-      const response = await axios.get(`http://3.17.182.174/api/vendas/buscar/${name}`);
+      const response = await axios.get(`https://3.17.182.174/api/vendas/buscar/${name}`);
       setVendas(response.data);
     } catch (error) {
       console.error('Erro ao buscar vendas:', error);
@@ -35,7 +35,7 @@ export default function ListVendas() {
 
   const fetchVendas = async () => {
     try {
-      const response = await axios.get('http://3.17.182.174/api/vendas');
+      const response = await axios.get('https://3.17.182.174/api/vendas');
       setVendas(response.data);
     } catch (error) {
       console.error('Erro ao buscar vendas:', error);
@@ -67,7 +67,7 @@ export default function ListVendas() {
     if (!vendaToDelete) return;
 
     try {
-      await axios.delete(`http://3.17.182.174/api/vendas/${vendaToDelete.idVenda}`);
+      await axios.delete(`https://3.17.182.174/api/vendas/${vendaToDelete.idVenda}`);
       setVendas(vendas.filter(venda => venda.idVenda !== vendaToDelete.idVenda));
       closeModalExcluir();
     } catch (error) {
@@ -88,14 +88,14 @@ export default function ListVendas() {
   const saveVenda = async (vendaData) => {
     if (vendaToEdit) {
       try {
-        await axios.put(`http://3.17.182.174/api/vendas/${vendaToEdit.idVenda}`, vendaData);
+        await axios.put(`https://3.17.182.174/api/vendas/${vendaToEdit.idVenda}`, vendaData);
         fetchVendas();
       } catch (error) {
         console.error('Erro ao atualizar venda:', error);
       }
     } else {
       try {
-        await axios.post('http://3.17.182.174/api/vendas', vendaData);
+        await axios.post('https://3.17.182.174/api/vendas', vendaData);
         fetchVendas();
       } catch (error) {
         console.error('Erro ao adicionar venda:', error);

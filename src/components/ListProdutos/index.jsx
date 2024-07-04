@@ -14,7 +14,7 @@ export default function ListProdutos() {
   useEffect(() => {
     const fetchProdutos = async () => {
       try {
-        const response = await axios.get('http://3.17.182.174/api/produtos');
+        const response = await axios.get('https://3.17.182.174/api/produtos');
         setProdutos(response.data);
       } catch (error) {
         console.error('Erro ao buscar produtos:', error);
@@ -26,7 +26,7 @@ export default function ListProdutos() {
 
   const fetchProdutosByName = async (name) => {
     try {
-      const response = await axios.get(`http://3.17.182.174/api/produtos/nome/${name}`);
+      const response = await axios.get(`https://3.17.182.174/api/produtos/nome/${name}`);
       setProdutos(response.data);
     } catch (error) {
       console.error('Erro ao buscar produtos:', error);
@@ -35,7 +35,7 @@ export default function ListProdutos() {
 
   const fetchProdutos = async () => {
     try {
-      const response = await axios.get('http://3.17.182.174/api/produtos');
+      const response = await axios.get('https://3.17.182.174/api/produtos');
       setProdutos(response.data);
     } catch (error) {
       console.error('Erro ao buscar produtos:', error);
@@ -67,7 +67,7 @@ export default function ListProdutos() {
     if (!produtoToDelete) return;
 
     try {
-      await axios.delete(`http://3.17.182.174/api/produtos/${produtoToDelete.id}`);
+      await axios.delete(`https://3.17.182.174/api/produtos/${produtoToDelete.id}`);
       setProdutos(produtos.filter(produto => produto.id !== produtoToDelete.id));
       closeModalExcluir();
     } catch (error) {
@@ -88,14 +88,14 @@ export default function ListProdutos() {
   const saveProduto = async (produtoData) => {
     if (produtoToEdit) {
       try {
-        await axios.put(`http://3.17.182.174/api/produtos/${produtoToEdit.id}`, produtoData);
+        await axios.put(`https://3.17.182.174/api/produtos/${produtoToEdit.id}`, produtoData);
         fetchProdutos();
       } catch (error) {
         console.error('Erro ao atualizar produto:', error);
       }
     } else {
       try {
-        await axios.post('http://3.17.182.174/api/produtos', produtoData);
+        await axios.post('https://3.17.182.174/api/produtos', produtoData);
         fetchProdutos();
       } catch (error) {
         console.error('Erro ao adicionar produto:', error);
